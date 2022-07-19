@@ -97,12 +97,12 @@ void Fixed_Border_Line(Uint8 road_type)
             Draw_Straight_Line(Binary_Image[0], 61, 59, 54, 16, Border_Imag_X);
             break;
         case in_crossing_road3:
-            Draw_Straight_Line(Binary_Image[0], 25, 59, 36, 16, Border_Imag_X);
-            Draw_Straight_Line(Binary_Image[0], 59, 59, 51, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 26, 59, 35, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 60, 59, 50, 16, Border_Imag_X);
             break;
         case in_crossing_road1:
-            Draw_Straight_Line(Binary_Image[0], 25, 59, 37, 16, Border_Imag_X);
-            Draw_Straight_Line(Binary_Image[0], 59, 59, 51, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 25, 59, 35, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 59, 59, 49, 16, Border_Imag_X);
             break;
         /* ******************************************************************************************************** */
 

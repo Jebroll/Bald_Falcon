@@ -1,5 +1,4 @@
 # space <name> <id> <mau size>
-space	mpe:tc0:abs24	102	8
 space	mpe:tc0:linear	101	8
 space	mpe:tc0:abs18	103	8
 space	mpe:tc0:csa	104	8
@@ -10,8 +9,8 @@ space	mpe:tc1:csa	204	8
 space	mpe:vtc:linear	1	8
 space	mpe:vtc:abs24	2	8
 space	mpe:vtc:abs18	3	8
+space	mpe:tc0:abs24	102	8
 # chip <name> <id> <mau size> <size> <type>
-chip	mpe:pfls0	4	8	1048576	rom
 chip	mpe:dsram1	0	8	122880	ram
 chip	mpe:pfls1	5	8	1572864	rom
 chip	mpe:dfls0	6	8	1064960	nvram
@@ -19,6 +18,7 @@ chip	mpe:edmem	7	8	524288	ram
 chip	mpe:dsram0	2	8	73728	ram
 chip	mpe:psram0	3	8	16384	ram
 chip	mpe:psram1	1	8	32768	ram
+chip	mpe:pfls0	4	8	1048576	rom
 # map <space id> <start in space> <size in space> <chip id> <start on chip>
 map	201	3489660928	122880	0	0
 map	202	3489660928	122880	0	0

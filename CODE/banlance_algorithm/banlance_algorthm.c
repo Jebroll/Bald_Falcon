@@ -5,11 +5,11 @@ Balance_Param_TypeDef Balance_Param;
 
 void Balance_Param_Init(void)
 {
-    Balance_Param.Angle_PID.kp = 0.95;//0.8
-    Balance_Param.Angle_PID.ki = 0.009;//0.02
+    Balance_Param.Angle_PID.kp = 1.05;//0.8
+    Balance_Param.Angle_PID.ki = 0.008;//0.02
     Balance_Param.Angle_PID.kd = 0.0055;//0.007
 
-    Balance_Param.Velocity_PID.kp = -0.0018;//-0.2
+    Balance_Param.Velocity_PID.kp = -0.002;//-0.2
     Balance_Param.Velocity_PID.ki = -0.0009;//-0.07
     Balance_Param.Velocity_PID.kd = 0;
 
