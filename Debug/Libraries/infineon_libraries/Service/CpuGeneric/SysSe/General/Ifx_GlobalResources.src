@@ -1,0 +1,666 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc18632a --dep-file=Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\Button -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\FOC -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\MT9V03X -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\Motor -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\attitude_algorithm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\banlance_algorithm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\gpio -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\CODE\\\\servo -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Lin -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Spi -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Icu -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmBc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\PwmHl -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TPwm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\TimerWithTrigger -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Cam -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cif\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Trap -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Dsadc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Rdc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dsadc\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Dts -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dts\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Emem\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Eray -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eray\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Phy_Pef7071 -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Eth\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Crc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fce\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Fft -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Fft\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\PwmHl -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tim\\\\In -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Pwm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\PwmHl -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Tom\\\\Timer -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Trig -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Hssl -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Hssl\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\I2c -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\I2c\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Driver -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Iom\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Msc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Msc\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Can -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Multican\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Io -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5 -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Psi5 -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Psi5s -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Psi5s\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiSlave -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Sent -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Sent\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Smu\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Timer -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\InternalMux -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\seekfree_libraries -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\seekfree_libraries\\\\common -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\seekfree_peripheral -ID:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\USER -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.src ../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.Ifx_GlobalResources.Ifx_GlobalResources_get',code,cluster('Ifx_GlobalResources_get')
+	.sect	'.text.Ifx_GlobalResources.Ifx_GlobalResources_get'
+	.align	2
+	
+	.global	Ifx_GlobalResources_get
+; Function Ifx_GlobalResources_get
+.L8:
+Ifx_GlobalResources_get:	.type	func
+	mov.a	a2,#0
+.L68:
+	j	.L2
+.L2:
+	ret
+.L47:
+	
+__Ifx_GlobalResources_get_function_end:
+	.size	Ifx_GlobalResources_get,__Ifx_GlobalResources_get_function_end-Ifx_GlobalResources_get
+.L25:
+	; End of function
+	
+	.sdecl	'.text.Ifx_GlobalResources.Ifx_GlobalResources_getIndex',code,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.text.Ifx_GlobalResources.Ifx_GlobalResources_getIndex'
+	.align	2
+	
+	.global	Ifx_GlobalResources_getIndex
+; Function Ifx_GlobalResources_getIndex
+.L10:
+Ifx_GlobalResources_getIndex:	.type	func
+	mov	d2,#-1
+.L69:
+	j	.L3
+.L3:
+	ret
+.L51:
+	
+__Ifx_GlobalResources_getIndex_function_end:
+	.size	Ifx_GlobalResources_getIndex,__Ifx_GlobalResources_getIndex_function_end-Ifx_GlobalResources_getIndex
+.L30:
+	; End of function
+	
+	.sdecl	'.text.Ifx_GlobalResources.Ifx_GlobalResources_getItem',code,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.text.Ifx_GlobalResources.Ifx_GlobalResources_getItem'
+	.align	2
+	
+	.global	Ifx_GlobalResources_getItem
+; Function Ifx_GlobalResources_getItem
+.L12:
+Ifx_GlobalResources_getItem:	.type	func
+	mov.a	a2,#0
+.L70:
+	j	.L4
+.L4:
+	ret
+.L55:
+	
+__Ifx_GlobalResources_getItem_function_end:
+	.size	Ifx_GlobalResources_getItem,__Ifx_GlobalResources_getItem_function_end-Ifx_GlobalResources_getItem
+.L35:
+	; End of function
+	
+	.sdecl	'.text.Ifx_GlobalResources.Ifx_GlobalResources_getName',code,cluster('Ifx_GlobalResources_getName')
+	.sect	'.text.Ifx_GlobalResources.Ifx_GlobalResources_getName'
+	.align	2
+	
+	.global	Ifx_GlobalResources_getName
+; Function Ifx_GlobalResources_getName
+.L14:
+Ifx_GlobalResources_getName:	.type	func
+	movh.a	a2,#@his(.1.str)
+.L71:
+	lea	a2,[a2]@los(.1.str)
+.L93:
+	j	.L5
+.L5:
+	ret
+.L59:
+	
+__Ifx_GlobalResources_getName_function_end:
+	.size	Ifx_GlobalResources_getName,__Ifx_GlobalResources_getName_function_end-Ifx_GlobalResources_getName
+.L40:
+	; End of function
+	
+	.sdecl	'.text.Ifx_GlobalResources.Ifx_GlobalResources_init',code,cluster('Ifx_GlobalResources_init')
+	.sect	'.text.Ifx_GlobalResources.Ifx_GlobalResources_init'
+	.align	2
+	
+	.global	Ifx_GlobalResources_init
+; Function Ifx_GlobalResources_init
+.L16:
+Ifx_GlobalResources_init:	.type	func
+	mov	d2,#0
+.L72:
+	j	.L6
+.L6:
+	ret
+.L63:
+	
+__Ifx_GlobalResources_init_function_end:
+	.size	Ifx_GlobalResources_init,__Ifx_GlobalResources_init_function_end-Ifx_GlobalResources_init
+.L45:
+	; End of function
+	
+	.sdecl	'.rodata.Ifx_GlobalResources..1.str',data,rom
+	.sect	'.rodata.Ifx_GlobalResources..1.str'
+.1.str:	.type	object
+	.size	.1.str,8
+	.byte	117,110,107,110
+	.byte	111,119,110
+	.space	1
+	.calls	'Ifx_GlobalResources_get','',0
+	.calls	'Ifx_GlobalResources_getIndex','',0
+	.calls	'Ifx_GlobalResources_getItem','',0
+	.calls	'Ifx_GlobalResources_getName','',0
+	.calls	'Ifx_GlobalResources_init','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L18:
+	.word	733
+	.half	3
+	.word	.L19
+	.byte	4
+.L17:
+	.byte	1
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\FreeScale\\ADS\\work_space\\Bald_Falcon\\Debug\\',0,12,1
+	.word	.L20
+	.byte	2
+	.byte	'void',0
+.L46:
+	.byte	3
+	.word	229
+.L48:
+	.byte	4
+	.byte	'long int',0,4,5,4
+	.byte	'char',0,1,6,5
+	.word	252
+	.byte	3
+	.word	260
+.L58:
+	.byte	6
+	.byte	'pchar',0,2,56,28
+	.word	265
+	.byte	7,1,58,9,8,8
+	.byte	'resource',0
+	.word	235
+	.byte	4,2,35,0,8
+	.byte	'name',0
+	.word	270
+	.byte	4,2,35,4,0,5
+	.word	284
+.L54:
+	.byte	3
+	.word	322
+	.byte	5
+	.word	252
+	.byte	3
+	.word	332
+.L62:
+	.byte	4
+	.byte	'unsigned char',0,1,8
+.L65:
+	.byte	4
+	.byte	'unsigned long int',0,4,7,4
+	.byte	'short int',0,2,5,6
+	.byte	'__wchar_t',0,3,1,1
+	.word	380
+	.byte	4
+	.byte	'unsigned int',0,4,7,6
+	.byte	'__size_t',0,3,1,1
+	.word	411
+	.byte	4
+	.byte	'int',0,4,5,6
+	.byte	'__ptrdiff_t',0,3,1,1
+	.word	444
+	.byte	9,1,3
+	.word	471
+	.byte	6
+	.byte	'__codeptr',0,3,1,1
+	.word	473
+	.byte	6
+	.byte	'boolean',0,4,101,29
+	.word	342
+	.byte	6
+	.byte	'uint8',0,4,105,29
+	.word	342
+	.byte	4
+	.byte	'unsigned short int',0,2,7,6
+	.byte	'uint16',0,4,109,29
+	.word	526
+	.byte	6
+	.byte	'uint32',0,4,113,29
+	.word	359
+	.byte	6
+	.byte	'sint16',0,4,126,29
+	.word	380
+	.byte	6
+	.byte	'sint32',0,4,131,1,29
+	.word	240
+	.byte	4
+	.byte	'long long int',0,8,5,6
+	.byte	'sint64',0,4,138,1,29
+	.word	609
+	.byte	4
+	.byte	'float',0,4,4,6
+	.byte	'float32',0,4,167,1,29
+	.word	642
+	.byte	6
+	.byte	'pvoid',0,2,57,28
+	.word	235
+	.byte	6
+	.byte	'Ifx_TickTime',0,2,79,28
+	.word	609
+	.byte	6
+	.byte	'Ifx_GlobalResources_Item',0,1,62,3
+	.word	284
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L19:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,59,0,3,8,0,0,3,15,0,73,19,0,0,4,36,0,3,8,11,15,62,15,0
+	.byte	0,5,38,0,73,19,0,0,6,22,0,3,8,58,15,59,15,57,15,73,19,0,0,7,19,1,58,15,59,15,57,15,11,15,0,0,8,13,0,3
+	.byte	8,73,19,11,15,56,9,0,0,9,21,0,54,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L20:
+	.word	.L74-.L73
+.L73:
+	.half	3
+	.word	.L76-.L75
+.L75:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'..\\Libraries\\infineon_libraries\\Service\\CpuGeneric\\SysSe\\General\\Ifx_GlobalResources.h',0,0,0
+	.byte	0
+	.byte	'D:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\Ifx_Types.h',0
+	.byte	0,0,0
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0,0,0,0
+	.byte	'D:\\\\FreeScale\\\\ADS\\\\work_space\\\\Bald_Falcon\\\\Libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\Platform_Types.h',0
+	.byte	0,0,0,0
+.L76:
+.L74:
+	.sdecl	'.debug_info',debug,cluster('Ifx_GlobalResources_get')
+	.sect	'.debug_info'
+.L21:
+	.word	327
+	.half	3
+	.word	.L22
+	.byte	4,1
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\FreeScale\\ADS\\work_space\\Bald_Falcon\\Debug\\',0,12,1
+	.word	.L24,.L23
+	.byte	2
+	.word	.L17
+	.byte	3
+	.byte	'Ifx_GlobalResources_get',0,1,58,7
+	.word	.L46
+	.byte	1,1,1
+	.word	.L8,.L47,.L7
+	.byte	4
+	.byte	'id',0,1,58,38
+	.word	.L48,.L49
+	.byte	5
+	.word	.L8,.L47
+	.byte	6
+	.byte	'result',0,1,60,11
+	.word	.L46,.L50
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Ifx_GlobalResources_get')
+	.sect	'.debug_abbrev'
+.L22:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Ifx_GlobalResources_get')
+	.sect	'.debug_line'
+.L23:
+	.word	.L78-.L77
+.L77:
+	.half	3
+	.word	.L80-.L79
+.L79:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0,0,0,0,0
+.L80:
+	.byte	5,12,7,0,5,2
+	.word	.L8
+	.byte	3,201,0,1,5,5,9
+	.half	.L68-.L8
+	.byte	3,4,1,5,1,9
+	.half	.L2-.L68
+	.byte	3,1,1,7,9
+	.half	.L25-.L2
+	.byte	0,1,1
+.L78:
+	.sdecl	'.debug_ranges',debug,cluster('Ifx_GlobalResources_get')
+	.sect	'.debug_ranges'
+.L24:
+	.word	-1,.L8,0,.L25-.L8,0,0
+	.sdecl	'.debug_info',debug,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.debug_info'
+.L26:
+	.word	334
+	.half	3
+	.word	.L27
+	.byte	4,1
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\FreeScale\\ADS\\work_space\\Bald_Falcon\\Debug\\',0,12,1
+	.word	.L29,.L28
+	.byte	2
+	.word	.L17
+	.byte	3
+	.byte	'Ifx_GlobalResources_getIndex',0,1,82,8
+	.word	.L48
+	.byte	1,1,1
+	.word	.L10,.L51,.L9
+	.byte	4
+	.byte	'resource',0,1,82,43
+	.word	.L46,.L52
+	.byte	5
+	.word	.L10,.L51
+	.byte	6
+	.byte	'id',0,1,84,12
+	.word	.L48,.L53
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.debug_abbrev'
+.L27:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.debug_line'
+.L28:
+	.word	.L82-.L81
+.L81:
+	.half	3
+	.word	.L84-.L83
+.L83:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0,0,0,0,0
+.L84:
+	.byte	5,15,7,0,5,2
+	.word	.L10
+	.byte	3,211,0,1,5,5,9
+	.half	.L69-.L10
+	.byte	3,18,1,5,1,9
+	.half	.L3-.L69
+	.byte	3,1,1,7,9
+	.half	.L30-.L3
+	.byte	0,1,1
+.L82:
+	.sdecl	'.debug_ranges',debug,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.debug_ranges'
+.L29:
+	.word	-1,.L10,0,.L30-.L10,0,0
+	.sdecl	'.debug_info',debug,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.debug_info'
+.L31:
+	.word	331
+	.half	3
+	.word	.L32
+	.byte	4,1
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\FreeScale\\ADS\\work_space\\Bald_Falcon\\Debug\\',0,12,1
+	.word	.L34,.L33
+	.byte	2
+	.word	.L17
+	.byte	3
+	.byte	'Ifx_GlobalResources_getItem',0,1,106,33
+	.word	.L54
+	.byte	1,1,1
+	.word	.L12,.L55,.L11
+	.byte	4
+	.byte	'id',0,1,106,68
+	.word	.L48,.L56
+	.byte	5
+	.word	.L12,.L55
+	.byte	6
+	.byte	'result',0,1,108,37
+	.word	.L54,.L57
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.debug_abbrev'
+.L32:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.debug_line'
+.L33:
+	.word	.L86-.L85
+.L85:
+	.half	3
+	.word	.L88-.L87
+.L87:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0,0,0,0,0
+.L88:
+	.byte	5,12,7,0,5,2
+	.word	.L12
+	.byte	3,249,0,1,5,5,9
+	.half	.L70-.L12
+	.byte	3,4,1,5,1,9
+	.half	.L4-.L70
+	.byte	3,1,1,7,9
+	.half	.L35-.L4
+	.byte	0,1,1
+.L86:
+	.sdecl	'.debug_ranges',debug,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.debug_ranges'
+.L34:
+	.word	-1,.L12,0,.L35-.L12,0,0
+	.sdecl	'.debug_info',debug,cluster('Ifx_GlobalResources_getName')
+	.sect	'.debug_info'
+.L36:
+	.word	332
+	.half	3
+	.word	.L37
+	.byte	4,1
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\FreeScale\\ADS\\work_space\\Bald_Falcon\\Debug\\',0,12,1
+	.word	.L39,.L38
+	.byte	2
+	.word	.L17
+	.byte	3
+	.byte	'Ifx_GlobalResources_getName',0,1,130,1,7
+	.word	.L58
+	.byte	1,1,1
+	.word	.L14,.L59,.L13
+	.byte	4
+	.byte	'id',0,1,130,1,42
+	.word	.L48,.L60
+	.byte	5
+	.word	.L14,.L59
+	.byte	6
+	.byte	'name',0,1,132,1,11
+	.word	.L58,.L61
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Ifx_GlobalResources_getName')
+	.sect	'.debug_abbrev'
+.L37:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Ifx_GlobalResources_getName')
+	.sect	'.debug_line'
+.L38:
+	.word	.L90-.L89
+.L89:
+	.half	3
+	.word	.L92-.L91
+.L91:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0,0,0,0,0
+.L92:
+	.byte	5,12,7,0,5,2
+	.word	.L14
+	.byte	3,145,1,1,5,5,9
+	.half	.L93-.L14
+	.byte	3,4,1,5,1,9
+	.half	.L5-.L93
+	.byte	3,1,1,7,9
+	.half	.L40-.L5
+	.byte	0,1,1
+.L90:
+	.sdecl	'.debug_ranges',debug,cluster('Ifx_GlobalResources_getName')
+	.sect	'.debug_ranges'
+.L39:
+	.word	-1,.L14,0,.L40-.L14,0,0
+	.sdecl	'.debug_info',debug,cluster('Ifx_GlobalResources_init')
+	.sect	'.debug_info'
+.L41:
+	.word	352
+	.half	3
+	.word	.L42
+	.byte	4,1
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\FreeScale\\ADS\\work_space\\Bald_Falcon\\Debug\\',0,12,1
+	.word	.L44,.L43
+	.byte	2
+	.word	.L17
+	.byte	3
+	.byte	'Ifx_GlobalResources_init',0,1,154,1,9
+	.word	.L62
+	.byte	1,1,1
+	.word	.L16,.L63,.L15
+	.byte	4
+	.byte	'table',0,1,154,1,66
+	.word	.L54,.L64
+	.byte	4
+	.byte	'size',0,1,154,1,80
+	.word	.L65,.L66
+	.byte	5
+	.word	.L16,.L63
+	.byte	6
+	.byte	'result',0,1,156,1,13
+	.word	.L62,.L67
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Ifx_GlobalResources_init')
+	.sect	'.debug_abbrev'
+.L42:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Ifx_GlobalResources_init')
+	.sect	'.debug_line'
+.L43:
+	.word	.L95-.L94
+.L94:
+	.half	3
+	.word	.L97-.L96
+.L96:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/infineon_libraries/Service/CpuGeneric/SysSe/General/Ifx_GlobalResources.c',0,0,0,0,0
+.L97:
+	.byte	5,30,7,0,5,2
+	.word	.L16
+	.byte	3,162,1,1,5,5,9
+	.half	.L72-.L16
+	.byte	3,4,1,5,1,9
+	.half	.L6-.L72
+	.byte	3,1,1,7,9
+	.half	.L45-.L6
+	.byte	0,1,1
+.L95:
+	.sdecl	'.debug_ranges',debug,cluster('Ifx_GlobalResources_init')
+	.sect	'.debug_ranges'
+.L44:
+	.word	-1,.L16,0,.L45-.L16,0,0
+	.sdecl	'.debug_loc',debug,cluster('Ifx_GlobalResources_get')
+	.sect	'.debug_loc'
+.L7:
+	.word	-1,.L8,0,.L47-.L8
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L49:
+	.word	-1,.L8,0,.L47-.L8
+	.half	1
+	.byte	84
+	.word	0,0
+.L50:
+	.word	-1,.L8,.L68-.L8,.L47-.L8
+	.half	1
+	.byte	98
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.debug_loc'
+.L9:
+	.word	-1,.L10,0,.L51-.L10
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L53:
+	.word	-1,.L10,.L69-.L10,.L51-.L10
+	.half	1
+	.byte	82
+	.word	0,0
+.L52:
+	.word	-1,.L10,0,.L51-.L10
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.debug_loc'
+.L11:
+	.word	-1,.L12,0,.L55-.L12
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L56:
+	.word	-1,.L12,0,.L55-.L12
+	.half	1
+	.byte	84
+	.word	0,0
+.L57:
+	.word	-1,.L12,.L70-.L12,.L55-.L12
+	.half	1
+	.byte	98
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Ifx_GlobalResources_getName')
+	.sect	'.debug_loc'
+.L13:
+	.word	-1,.L14,0,.L59-.L14
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L60:
+	.word	-1,.L14,0,.L59-.L14
+	.half	1
+	.byte	84
+	.word	0,0
+.L61:
+	.word	-1,.L14,.L71-.L14,.L59-.L14
+	.half	1
+	.byte	98
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Ifx_GlobalResources_init')
+	.sect	'.debug_loc'
+.L15:
+	.word	-1,.L16,0,.L63-.L16
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L67:
+	.word	-1,.L16,.L72-.L16,.L63-.L16
+	.half	1
+	.byte	82
+	.word	0,0
+.L66:
+	.word	-1,.L16,0,.L63-.L16
+	.half	1
+	.byte	84
+	.word	0,0
+.L64:
+	.word	-1,.L16,0,.L63-.L16
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L98:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('Ifx_GlobalResources_get')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L98,.L8,.L47-.L8
+	.byte	8,19,8,20,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('Ifx_GlobalResources_getIndex')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L98,.L10,.L51-.L10
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('Ifx_GlobalResources_getItem')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L98,.L12,.L55-.L12
+	.byte	8,19,8,20,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('Ifx_GlobalResources_getName')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L98,.L14,.L59-.L14
+	.byte	8,19,8,20,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('Ifx_GlobalResources_init')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L98,.L16,.L63-.L16
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	; Module end
