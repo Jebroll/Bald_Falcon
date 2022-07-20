@@ -89,31 +89,31 @@ void Fixed_Border_Line(Uint8 road_type)
                                                 Total_Image.special_point[H].x, Total_Image.special_point[H].y, Border_Imag_X);
             break;
         case in_crossing_road2:
-            Draw_Straight_Line(Binary_Image[0], 27, 59, 40, 16, Border_Imag_X);
-            Draw_Straight_Line(Binary_Image[0], 61, 59, 54, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 27, 59, 43, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 61, 59, 57, 16, Border_Imag_X);
             break;
         case in_crossing_road4:
-            Draw_Straight_Line(Binary_Image[0], 27, 59, 40, 16, Border_Imag_X);
-            Draw_Straight_Line(Binary_Image[0], 61, 59, 54, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 27, 59, 42, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 61, 59, 56, 16, Border_Imag_X);
             break;
         case in_crossing_road3:
-            Draw_Straight_Line(Binary_Image[0], 26, 59, 35, 16, Border_Imag_X);
-            Draw_Straight_Line(Binary_Image[0], 60, 59, 50, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 28, 59, 38, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 62, 59, 53, 16, Border_Imag_X);
             break;
         case in_crossing_road1:
-            Draw_Straight_Line(Binary_Image[0], 25, 59, 35, 16, Border_Imag_X);
-            Draw_Straight_Line(Binary_Image[0], 59, 59, 49, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 28, 59, 38, 16, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], 62, 59, 52, 16, Border_Imag_X);
             break;
         /* ******************************************************************************************************** */
 
         /* ****************************************Èý²íÂ·×´Ì¬******************************************************* */
         case before_right_three_way_road:
-            Draw_Straight_Line(Binary_Image[0], Total_Image.special_point[C].x, Total_Image.special_point[C].y, \
-                                                50, 10, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], Total_Image.special_point[C].x+5, Total_Image.special_point[C].y+5, \
+                                                55, 10, Border_Imag_X);
             last_C_point.x = Total_Image.special_point[C].x;
             break;
         case in_right_three_way_road:
-            Draw_Straight_Line(Binary_Image[0], last_C_point.x, 59, 50, 10, Border_Imag_X);
+            Draw_Straight_Line(Binary_Image[0], last_C_point.x+5, 59, 55, 10, Border_Imag_X);
             break;
         case before_left_three_way_road:
             Draw_Straight_Line(Binary_Image[0], Total_Image.special_point[D].x, Total_Image.special_point[D].y, \
@@ -201,7 +201,7 @@ void Fixed_Border_Line(Uint8 road_type)
             last_B_point.y = Total_Image.special_point[B].y;
             break;
         case left_round_about_status6:
-            Draw_Curve(Binary_Image[0], last_B_point.x-17, last_B_point.y, 41, 21, Binary_Imag_X);
+            Draw_Curve(Binary_Image[0], last_B_point.x-19, last_B_point.y, 38, 21, Binary_Imag_X);
             break;
         case left_round_about_status8:
             Draw_Curve(Binary_Image[0], Total_Image.special_point[D].x, Total_Image.special_point[D].y, \
@@ -425,6 +425,11 @@ Uint8 Output_Error(Uint8 stack_length, Uint8 prospect)
         data2.y = (58-stack_length-1);
         if (data1.x > 46) Total_Image.OUTPUT_ERROR = (data1.x - 46)*1.2;
         else Total_Image.OUTPUT_ERROR = -(46 - data1.x)*1.2;
+    }
+
+    if (Total_Image.road_type == left_round_about_status1_5 || Total_Image.road_type == left_round_about_status2 || Total_Image.road_type == left_round_about_status3)
+    {
+        Total_Image.OUTPUT_ERROR = Total_Image.OUTPUT_ERROR - 3;
     }
 
     return data2.y;

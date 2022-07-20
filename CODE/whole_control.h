@@ -4,6 +4,7 @@
 #include "servo.h"
 #include "motor.h"
 #include "SEEKFREE_18TFT.h"
+#include "gpio.h"
 
 extern uint8 start_stop_flag;
 

@@ -4,6 +4,7 @@
 #include "MY_Common.h"
 #include "Draw_Line.h"
 #include "MY_Imag_Process.h"
+#include "gpio.h"
 
 #define Border_Line_Size      100//防止栈满,因为边线数组只有60个
 #define PROPECT               20

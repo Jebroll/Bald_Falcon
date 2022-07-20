@@ -63,7 +63,7 @@ int core0_main(void)
             //Debug²ÎÊý
 //            lcd_showuint8(96,0,Total_Image.road_type);
 //            lcd_showfloat(96,1,eulerAngle.pitch, 2, 2);
-//            lcd_showuint8(96,1,error);
+//            lcd_showuint8(96,1,Total_Image.stop_cnt);
 //            lcd_showuint8(96,2,Total_Image.left_white_line);lcd_showuint8(120,2,Total_Image.right_white_line);
 //            lcd_showfloat(96,2,Total_Image.left_line_curvature,2,3);
 //            lcd_showfloat(96,3,Total_Image.right_line_curvature,2,3);

@@ -21,9 +21,9 @@ void Buzzer_Ctrl(GPIO_STATUS_enum status)
 
 void Led_Init(void)
 {
-    gpio_init(LED6, GPO, 0, OPENDRAIN);//LED6_Init
+    gpio_init(LED6, GPO, 1, OPENDRAIN);//LED6_Init
     gpio_init(LED5, GPO, 1, OPENDRAIN);//LED5_Init
-    gpio_init(LED4, GPO, 1, PUSHPULL);//LED4_Init
+    gpio_init(LED4, GPO, 0, PUSHPULL);//LED4_Init
     gpio_init(LED3, GPO, 0, PUSHPULL);//LED3_Init
     gpio_init(LED2, GPO, 0, PUSHPULL);//LED2_Init
     gpio_init(LED1, GPO, 0, PUSHPULL);//LED1_Init

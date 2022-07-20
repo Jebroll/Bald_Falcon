@@ -11,7 +11,7 @@ uint8 start_stop_flag = 1;
 void Smooth_Change_Servo(float angle)
 {
     float error = Servo_Param.Head_Angle_Input - angle;
-    Servo_Param.Head_Angle_Input -= 0.05*error;
+    Servo_Param.Head_Angle_Input -= 0.048*error;
     Servo_Control(Servo_Param.Head_Angle_Input);
 }
 
@@ -53,7 +53,7 @@ void Exist_Garage(void)
 
     Total_Image.OUTPUT_ERROR = -14;
     delay_count++;
-    if (delay_count >= 350)
+    if (delay_count >= 230)
     {
         start_stop_flag = 0;
         Total_Image.road_type = road_normal;
@@ -62,18 +62,21 @@ void Exist_Garage(void)
 
 void Enter_Graage(void)
 {
-    static uint16 delay_count;
+    static uint16 delay_count = 0;
 
+    Buzzer_Ctrl(ON);
     start_stop_flag = 1;
     delay_count++;
-    if (delay_count % 15 == 0)
+    if (delay_count % 14 == 0)
     {
-        Speed_Param.Speed_Setup--;
+        Speed_Param.Speed_Setup -= 12;
         Total_Image.OUTPUT_ERROR -= 2;
         if (delay_count >= 300)
         {
-            delay_count = 300;
             Speed_Param.Speed_Setup = 0;
+            Configuration_complete_flag = 0;
+            Motor_Stop();
+            while(1);
         }
     }
 }
@@ -88,7 +91,45 @@ void Road_Mode_Ctrl(void)
         case stop:
             Enter_Graage();
             break;
+//        case in_crossing_road1:
+//            Speed_Param.Speed_Setup = 100;
+//            break;
+//        case in_crossing_road3:
+//            Speed_Param.Speed_Setup = 100;
+//            break;
+        default:
+            break;
     }
+    switch(Total_Image.crossing_road_status)
+    {
+        case second_crossing_exit:
+            Speed_Param.Speed_Setup = 63;
+            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+            break;
+        default:
+            break;
+    }
+    switch(Total_Image.round_road_status)
+    {
+        case round_road_finishs:
+            Speed_Param.Speed_Setup = 60;
+            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+            break;
+        default:
+            break;
+    }
+    switch(Total_Image.three_way_status)
+    {
+        case enter_right_three_way:
+            Speed_Param.Speed_Setup = 58;
+            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+            break;
+        case exit_right_three_way:
+            Speed_Param.Speed_Setup = 65;
+            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+            break;
+    }
+    if (eulerAngle.pitch > 5) Speed_Param.Speed_Setup = 75;
 }
 void Whole_Ctrl(void)
 {

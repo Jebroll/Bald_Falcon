@@ -19,6 +19,7 @@ typedef struct
 {
         PID_TypeDef PID;
         float Speed;                //存放驱动轮当前速度
+        float Normal_Speed;         //常规设定速度
         float Speed_Setup;          //设置驱动轮的速度
         float Speed_Input;          //输入驱动轮的速度
 }Speed_Param_TypeDef;

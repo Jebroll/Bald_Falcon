@@ -721,7 +721,7 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
     Total_Image.right_line_cnt = right_border_line_cnt;
 
     //C,D点向上延伸,找到E,F点
-    if (Total_Image.special_point[C].y > 30 && Total_Image.special_point[D].y > 30 && ABS(Total_Image.special_point[C].y - Total_Image.special_point[D].y) < 30 && Total_Image.crossing_road_status != second_crossing_road_way_in)
+    if (Total_Image.special_point[C].y > 40 && Total_Image.special_point[D].y > 40 && ABS(Total_Image.special_point[C].y - Total_Image.special_point[D].y) < 30 && Total_Image.crossing_road_status != first_crossing_road_way_out)
     {
         //找到E点
         start_y = Total_Image.special_point[C].y-1;
@@ -898,8 +898,7 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
         }
     }
 
-    //C,D点向上延伸,找到E,F点
-    if (Total_Image.special_point[C].y > 45 && Total_Image.special_point[D].y > 45 && ABS(Total_Image.special_point[C].y - Total_Image.special_point[D].y) < 30 && Total_Image.crossing_road_status == second_crossing_road_way_in)
+    if (Total_Image.special_point[C].y > 34 && Total_Image.special_point[D].y > 34 && ABS(Total_Image.special_point[C].y - Total_Image.special_point[D].y) < 30 && Total_Image.crossing_road_status == first_crossing_road_way_out)
     {
         //找到E点
         start_y = Total_Image.special_point[C].y-1;
@@ -1318,7 +1317,21 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
     //三岔路过后的入库判断
     if (Total_Image.three_way_status >= exit_right_three_way)
     {
-        if (Total_Image.left_white_line > 0)
+        Uint8 Temp_x = *(ptr+80+Image_x*20);
+        Uint8 cnt = 0;
+        for (Uint8 i = 20; i < 40; i++)
+        {
+            for (Uint8 j = 80; j > 10; j--)
+            {
+                if (*(ptr+j+i*Image_x) != Temp_x)
+                {
+                    Temp_x = *(ptr+j+i*Image_x);
+                    cnt++;
+                }
+            }
+        }
+        Total_Image.stop_cnt = cnt;
+        if (Total_Image.stop_cnt > 150)
         {
             Total_Image.road_type = stop;
         }
@@ -1391,7 +1404,7 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
     if (Total_Image.road_type == in_crossing_road3 && Total_Image.left_white_line == 0 && Total_Image.right_white_line == 0)
     {
         Total_Image.road_type = road_normal;
-        Total_Image.crossing_road_status = crossing_road_normal;
+        Total_Image.crossing_road_status++;
     }
     /* ********************************************************************************************** */
 
@@ -1551,7 +1564,7 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
     {
         Total_Image.road_type = left_round_about_status10;
     }
-    if (Total_Image.road_type == left_round_about_status10 && (int)eulerAngle.yaw > 344)//出环后的姿态矫正
+    if (Total_Image.road_type == left_round_about_status10 && (int)eulerAngle.yaw > 341)//出环后的姿态矫正
     {
         Total_Image.road_type = left_round_about_status11;
     }

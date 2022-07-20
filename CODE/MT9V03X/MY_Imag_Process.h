@@ -6,6 +6,7 @@
 #include "SEEKFREE_18TFT.h"
 #include "attitude_algorithm.h"
 #include "Draw_Line.h"
+#include "gpio.h"
 
 #define Cut_Imag_X                 94
 #define Cut_Imag_Y                 60
@@ -120,7 +121,8 @@ enum crossing_road_status
   crossing_road_normal,
   first_crossing_road_way_out,
   second_crossing_road_way_in,
-  second_crossing_road_way_out
+  second_crossing_road_way_out,
+  second_crossing_exit
 };
 
 typedef struct _otsu_filter_
@@ -146,6 +148,7 @@ typedef struct _total_image_
         Uint8 left_line_cnt;
         Uint8 right_line_cnt;
         Uint8 middle_line_cnt;
+        Uint8 stop_cnt;
         Int8 OUTPUT_ERROR;
 }TOTAL_IMAGE;
 

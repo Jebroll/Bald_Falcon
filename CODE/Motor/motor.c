@@ -35,7 +35,8 @@ void Motor_Param_Init(void)
 
     Speed_Param.Speed = 0;             //驱动轮编码器速度
     Speed_Param.Speed_Input = 0;
-    Speed_Param.Speed_Setup = 55;      //驱动轮设定速度
+    Speed_Param.Speed_Setup = 70;      //驱动轮设定速度
+    Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
 }
 
 void Speed_Control(float target_speed)

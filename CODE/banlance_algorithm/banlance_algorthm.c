@@ -5,11 +5,11 @@ Balance_Param_TypeDef Balance_Param;
 
 void Balance_Param_Init(void)
 {
-    Balance_Param.Angle_PID.kp = 1.05;//0.8
-    Balance_Param.Angle_PID.ki = 0.008;//0.02
-    Balance_Param.Angle_PID.kd = 0.0055;//0.007
+    Balance_Param.Angle_PID.kp = 1.1;//0.8
+    Balance_Param.Angle_PID.ki = 0.0071;//0.02
+    Balance_Param.Angle_PID.kd = 0.0065;//0.007
 
-    Balance_Param.Velocity_PID.kp = -0.002;//-0.2
+    Balance_Param.Velocity_PID.kp = -0.0022;//-0.2
     Balance_Param.Velocity_PID.ki = -0.0009;//-0.07
     Balance_Param.Velocity_PID.kd = 0;
 
@@ -17,7 +17,7 @@ void Balance_Param_Init(void)
     Balance_Param.Balance_Angle.mid = 0.5 ;
     Balance_Param.Balance_Angle.right = 2.6;
 
-    Balance_Param.Speed_Correction.left = 0.013;
+    Balance_Param.Speed_Correction.left  = 0.013;
     Balance_Param.Speed_Correction.right = 0.013;
 }
 uint8 Momentum_Motor_Flag = 1;  //动量轮启停标志
@@ -83,8 +83,8 @@ float Vertical(float target_angle, float current_angle, float gyro_x)
 
     error += current_angle - target_angle;
 
-    if(error>+30) error=+30;                                          //积分限幅
-    if(error<-30) error=-30;                                          //积分限幅
+    if(error>+8) error=+8;                                          //积分限幅
+    if(error<-8) error=-8;                                          //积分限幅
 
     Vetical_PWM = Balance_Param.Angle_PID.kp * (current_angle - target_angle) +
                   Balance_Param.Angle_PID.ki * error +
@@ -132,7 +132,16 @@ void Balance_Control(void)
 
     Vetical_PWM  = Vertical(Dynamic_Balance_Angle, eulerAngle.roll, icm_gyro_x);
     Velocity_PWM = Velocity(Momentum_Speed);
-
+#if 0
+    if(FOC.Ref_Park.q > 3.6 && Total_Image.road_type != start && Total_Image.road_type != stop)
+    {
+        Speed_Param.Speed_Setup += 5.1;
+    }
+    else
+    {
+        Speed_Param.Speed_Setup = Speed_Param.Normal_Speed;
+    }
+#endif
     Momentum_Motor_Duty = (Vetical_PWM - Velocity_PWM);
 
     if(eulerAngle.roll > Dynamic_Balance_Angle + 12 || eulerAngle.roll < Dynamic_Balance_Angle - 12)//摔倒判断，保护电机、电池
