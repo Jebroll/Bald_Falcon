@@ -1,6 +1,6 @@
 #include "hall.h"
 
-uint8 control_hall[6] = {3,1,5,4,6,2};
+uint8 control_hall[6] = {3,1,5,4,6,2};//霍尔时序转换表
 
 void clock_cfg(void)
 {
@@ -95,9 +95,9 @@ HALL_Typedef Get_Hall_Value(void)
     static uint8 hall_index = 0;
 
     hall.value.last = hall.value.now;
-    hall.value.now = GTM_SPE0_CTRL_STAT.B.NIP;
+    hall.value.now = GTM_SPE0_CTRL_STAT.B.NIP;//硬件读取霍尔传感器数据
 
-    for(int i=0; i<6; i++)
+    for(int i=0; i<6; i++)//霍尔时序转换，将3-1-5-4-6-2转换成1-2-3-4-5-6
     {
         if(hall.value.now == control_hall[i])
         {
@@ -107,7 +107,7 @@ HALL_Typedef Get_Hall_Value(void)
     }
 
     hall.commutation_time++;
-    if(hall.commutation_time >= COMMUTATION_TIMEOUT)
+    if(hall.commutation_time >= COMMUTATION_TIMEOUT)  //如果转子换向超时，即电机堵转
     {
         hall.commutation_time = COMMUTATION_TIMEOUT;
         hall.commutation_time_save[0] = COMMUTATION_TIMEOUT;
@@ -117,10 +117,10 @@ HALL_Typedef Get_Hall_Value(void)
         hall.commutation_time_save[4] = COMMUTATION_TIMEOUT;
         hall.commutation_time_save[5] = COMMUTATION_TIMEOUT;
 
-        //滑动平均滤波初始化
+        //滑动平均滤波初始化,将速度变为0
         move_filter_init(&speed_filter);
     }
-    if (hall.value.now != hall.value.last)
+    if (hall.value.now != hall.value.last)//用于速度计算和当前转子旋转方向判断
     {
         hall_index++;
         if(hall_index >= 6)

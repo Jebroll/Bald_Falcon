@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "ccu6_pwm.h": "c",
+        "isr_config.h": "c",
+        "ifxccu6.h": "c",
+        "clark.h": "c",
+        "banlance_algorthm.h": "c"
+    }
+}

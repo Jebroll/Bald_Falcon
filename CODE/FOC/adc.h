@@ -12,11 +12,8 @@
 #define B_PHASE_PORT            ADC2_CH4_A36     //B相电流读取通道
 //#define C_PHASE_PORT            ADC2_CH5_A37     //C相电流读取通道
 
-#define Joystick_Y              ADC2_CH5_A37
-#define Joystick_SW             ADC2_CH6_A38
 
-
-#define FILTER_ENABLE           0
+#define FILTER_ENABLE           0                   //滤波控制开关
 
 typedef struct
 {

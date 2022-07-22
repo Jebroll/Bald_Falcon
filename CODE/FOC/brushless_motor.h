@@ -12,7 +12,7 @@
 #include "hall.h"
 #include "move_filter.h"
 #include "private_common.h"
-//#include "fast_sin_cos_f32.h"
+
 
 #define Q_DEAD_PERIOD               1.0         //q轴死区
 #define PWM_PIT_NUM                 60*FPWM
@@ -29,13 +29,10 @@ typedef enum
 
 typedef struct
 {
-    int32 speed;
-    int32 last_speed;
-    int32 set_speed;    //设置的速度
-    int32 max_speed;    //速度最大值
-    int32 min_speed;    //速度最小值
-    MOTOR_DIR_enum actual_dir;
-    MOTOR_DIR_enum dir;
+    int32 speed;                //当前速度
+    int32 last_speed;           //上一时刻速度
+    MOTOR_DIR_enum actual_dir;  //当前转子旋转方向
+    MOTOR_DIR_enum dir;         //设定的转子旋转方向
 }BLmotor_Typedef;
 
 typedef struct
@@ -43,18 +40,18 @@ typedef struct
     double x;
     double y;
     double z;
-}Instrument_Typedef;
+}Instrument_Typedef;            //为了减少计算量的中间变量结构体
 
 typedef struct
 {
-    double ta;
-    double tb;
+    double ta;                  //基矢量作用时间a
+    double tb;                  //基矢量作用时间b
 }VectorTime_Typedef;
 
 typedef struct
 {
-    uint16 AH;
-    uint16 AL;
+    uint16 AH;                  //A上桥定时器比较值
+    uint16 AL;                  //A下桥定时器比较值
     uint16 BH;
     uint16 BL;
     uint16 CH;
@@ -65,7 +62,7 @@ typedef struct
 {
     PID_TypeDef d;
     PID_TypeDef q;
-}Current_CL_Typedef;
+}Current_CL_Typedef;            //d、q轴PID参数结构体
 
 typedef struct
 {
@@ -81,7 +78,7 @@ typedef struct
     HALL_Typedef hall;              //霍尔传感器数据
     uint8  N;                       //电角度扇区
     double theta;                   //电角度
-    Period_Typedef Period;          //各桥占空比
+    Period_Typedef Period;          //各桥定时器比较值
     Current_CL_Typedef Current_CL;  //电流环PID参数
 }FOC_Parm_Typedef;
 extern FOC_Parm_Typedef FOC;

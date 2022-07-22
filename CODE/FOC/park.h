@@ -6,8 +6,8 @@
 
 typedef struct
 {
-    double d;              // 输出，旋转坐标系下的D坐标值电流
-    double q;              // 输出，旋转坐标系下的Q坐标值电流
+    double d;
+    double q;
 } PARK_Typedef;
 
 PARK_Typedef Park_Calc(CLARK_Typedef clark, double theta);

@@ -6,8 +6,8 @@
 
 typedef struct
 {
-    double Alpha;                   // 输出，静止坐标系Alpha轴定子电流
-    double Beta;                    // 输出，静止坐标系Beta轴定子电流
+    double Alpha;
+    double Beta;
 
 }CLARK_Typedef;
 CLARK_Typedef Clark_Calc(ADC_Typedef adc);

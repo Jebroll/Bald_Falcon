@@ -73,7 +73,7 @@ float Middle_Angle_Counting(float head_angle, float bicycle_speed)
 ////  @param      target_angle:目标角度
 ////  @param      current:当前角度
 ////  @param      gyro_x:角加速度
-////  @return     void
+////  @return
 ////  @since
 ////-------------------------------------------------------------------------------------------------------------------
 float Vertical(float target_angle, float current_angle, float gyro_x)
@@ -96,7 +96,7 @@ float Vertical(float target_angle, float current_angle, float gyro_x)
 ////  @brief      速度环
 ////  @param      encoder:转子速度
 ////  @return
-////  @since
+////  @since      正反馈
 ////-------------------------------------------------------------------------------------------------------------------
 float Velocity(float encoder)
 {
@@ -132,7 +132,7 @@ void Balance_Control(void)
 
     Vetical_PWM  = Vertical(Dynamic_Balance_Angle, eulerAngle.roll, icm_gyro_x);
     Velocity_PWM = Velocity(Momentum_Speed);
-#if 0
+#if 0  //后轮瞬间加速辅助平衡，没时间调
     if(FOC.Ref_Park.q > 3.6 && Total_Image.road_type != start && Total_Image.road_type != stop)
     {
         Speed_Param.Speed_Setup += 5.1;
@@ -154,7 +154,7 @@ void Balance_Control(void)
     if(Momentum_Motor_Flag == 0)                       // 停车
     {
         Momentum_Motor_Duty = 0;                      // 电机关闭
-//        Integration = 0;                     // 积分参数归零
+
     }
 
     Momemtum_Motor_Control(Momentum_Motor_Duty);
@@ -163,7 +163,7 @@ void Balance_Control(void)
 ////  @brief      平衡相关数据打印
 ////  @param      void
 ////  @return     void
-////  @since      调试时放在main.c使用
+////  @since      调试时放在main.c使用，不使用时记得关闭
 ////-------------------------------------------------------------------------------------------------------------------
 void BANLANCE_TEST_PRINTF(void)
 {
@@ -172,6 +172,12 @@ void BANLANCE_TEST_PRINTF(void)
     printf("%.2f,%f,%f,%f\r\n",eulerAngle.roll, Dynamic_Balance_Angle, Momentum_Speed, Momentum_Motor_Duty);//调试用
 }
 
+////-------------------------------------------------------------------------------------------------------------------
+////  @brief      平衡总控制初始化
+////  @param      void
+////  @return     void
+////  @since 
+////-------------------------------------------------------------------------------------------------------------------
 
 void Banlance_Algorithm_Init(void)
 {

@@ -3,13 +3,13 @@
 
 #if FILTER_ENABLE
 Ifx_LowPassPt1F32 current_filter;
-void LowPassFilter_Init(void)
+void LowPassFilter_Init(void)//英飞凌一阶低通滤波器初始化
 {
     Ifx_LowPassPt1F32_Config current_filter_config;
 
-    current_filter_config.cutOffFrequency   = 700;
-    current_filter_config.samplingTime      = 0.00005;
-    current_filter_config.gain              = 1;
+    current_filter_config.cutOffFrequency   = 700;          //截止频率
+    current_filter_config.samplingTime      = 0.00005;      //采样时间
+    current_filter_config.gain              = 1;            //增益
 
     Ifx_LowPassPt1F32_init(&current_filter, &current_filter_config);
 }
@@ -18,7 +18,7 @@ void LowPassFilter_Init(void)
 //  @brief      ADC采集并计算三相电流
 //  @param      void
 //  @return     三相电流值
-//  @since      V = 1.884 + 0.15I  (-10A< I <10A)
+//  @since      V = 1.884 + 0.15I  (-10A< I <10A)       需要根据实际情况计算
 //-------------------------------------------------------------------------------------------------------------------
 ADC_Typedef Adc_Read(void)
 {

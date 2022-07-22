@@ -12,12 +12,12 @@ FOC_Parm_Typedef FOC;
 //-------------------------------------------------------------------------------------------------------------------
 void Mos_All_High_Open(uint16 periodAH, uint16 periodBH, uint16 periodCH)
 {
-    ccu6SFR->MODCTR.B.T12MODEN = 0x3F;//0011 1111
+    ccu6SFR->MODCTR.B.T12MODEN = 0x3F;//0011 1111                   //用户手册27.8章节自己看
 
-    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_0, periodAH);
-    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_1, periodBH);
-    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_2, periodCH);
-    IfxCcu6_enableShadowTransfer(ccu6SFR, TRUE, FALSE);
+    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_0, periodAH);         //设置比较值
+    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_1, periodBH);         //设置比较值
+    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_2, periodCH);         //设置比较值
+    IfxCcu6_enableShadowTransfer(ccu6SFR, TRUE, FALSE);                          //使能
 }
 
 //-------------------------------------------------------------------------------------------------------------------
@@ -28,12 +28,12 @@ void Mos_All_High_Open(uint16 periodAH, uint16 periodBH, uint16 periodCH)
 //-------------------------------------------------------------------------------------------------------------------
 void Mos_All_Low_Open(void)
 {
-    ccu6SFR->MODCTR.B.T12MODEN = 0x2A;//0010 1010
+    ccu6SFR->MODCTR.B.T12MODEN = 0x2A;//0010 1010                   //用户手册27.8章节自己看
 
-    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_0, 0);
+    IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_0, 0);   
     IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_1, 0);
     IfxCcu6_setT12CompareValue(ccu6SFR, IfxCcu6_T12Channel_2, 0);
-    IfxCcu6_enableShadowTransfer(ccu6SFR, TRUE, FALSE);
+    IfxCcu6_enableShadowTransfer(ccu6SFR, TRUE, FALSE);                         //使能
 }
 
 //-------------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ Instrument_Typedef Tool_Calc(CLARK_Typedef clark)
 {
     Instrument_Typedef tool;
 
-    tool.x=   clark.Beta;
+    tool.x =  clark.Beta;
     tool.y =  clark.Alpha * sqrt3 / 2.0 - clark.Beta / 2.0;
     tool.z = -clark.Alpha * sqrt3 / 2.0 - clark.Beta / 2.0;
 
@@ -192,7 +192,7 @@ Period_Typedef PeriodCal(VectorTime_Typedef vector, uint8 N, uint16 T)
 //  @param      speed:转子速度（RPM）
 //  @param      dir:转子设定旋转方向
 //  @return     电角度
-//  @since
+//  @since      由于没有使用编码器，使用的是霍尔传感器，精度不够，所以靠转子速度硬算电角度（不准确）
 //-------------------------------------------------------------------------------------------------------------------
 double Theta_Calc (HALL_Typedef hall, int32 speed, MOTOR_DIR_enum dir)
 {
@@ -200,30 +200,30 @@ double Theta_Calc (HALL_Typedef hall, int32 speed, MOTOR_DIR_enum dir)
 
     if(speed < 0)  speed = -speed;
 
-    if (dir)
+    if (dir)//反传
     {
-        if (hall.value.now != hall.value.last)
+        if (hall.value.now != hall.value.last)//如果转子进入了下一个扇区
         {
             switch (hall.value.now)
             {
                 case 1: theta  = degrees_180;   break;
-                case 2: theta  = degrees_240;  break;
-                case 3: theta  = degrees_300; break;
-                case 4: theta  = degrees_0; break;
-                case 5: theta  = degrees_60; break;
-                case 6: theta  = degrees_120; break;
-                default:                      break;
+                case 2: theta  = degrees_240;   break;
+                case 3: theta  = degrees_300;   break;
+                case 4: theta  = degrees_0;     break;
+                case 5: theta  = degrees_60;    break;
+                case 6: theta  = degrees_120;   break;
+                default:                        break;
             }
         }
         else
-        {
-            theta -= speed * pi /600000.0;
-            if (theta <= 0)     theta = pi_2;
-        }
+        {                                                   //角度计算说明：
+            theta -= speed * pi /600000.0;                  //由于 转子速度是            x(rpm/min)
+            if (theta <= 0)     theta = pi_2;               //换算之后为 1/600000 * pi * x(rad/50us)
+        }                                                   //控制周期为50us,即20kHz
     }
-    else
+    else//正转
     {
-        if (hall.value.now != hall.value.last)
+        if (hall.value.now != hall.value.last)//如果转子进入了下一个扇区
         {
             switch (hall.value.now)
             {
@@ -233,18 +233,12 @@ double Theta_Calc (HALL_Typedef hall, int32 speed, MOTOR_DIR_enum dir)
                 case 4: theta  = degrees_180;   break;
                 case 5: theta  = degrees_240;   break;
                 case 6: theta  = degrees_300;   break;
-//                case 1: theta  = pi/180 * 55;     break;
-//                case 2: theta  = pi/180 * 115;    break;
-//                case 3: theta  = pi/180 * 175;   break;
-//                case 4: theta  = pi/180 * 235;   break;
-//                case 5: theta  = pi/180 * 295;   break;
-//                case 6: theta  = pi/180 * 355;   break;
-                default:                       break;
+                default:                        break;
             }
         }
         else
         {
-            theta += speed * pi /600000.0;
+            theta += speed * pi /600000.0;                  //同上
             if (theta >= pi_2)  theta = 0;
         }
     }
@@ -252,10 +246,10 @@ double Theta_Calc (HALL_Typedef hall, int32 speed, MOTOR_DIR_enum dir)
     return theta;
 }
 //-------------------------------------------------------------------------------------------------------------------
-//  @brief      转子旋转速度计算
-//  @param      hall:霍尔传感器相关数据
-//  @return     转子速度（RPM）
-//  @since
+//  @brief      正反转状态灯控制
+//  @param      dir:正反转枚举
+//  @return     none
+//  @since      none
 //-------------------------------------------------------------------------------------------------------------------
 void FOC_Status_Display(MOTOR_DIR_enum dir)
 {
@@ -275,35 +269,36 @@ void FOC_Status_Display(MOTOR_DIR_enum dir)
 //  @brief      判断转子当前旋转方向
 //  @param      hall:霍尔传感器相关数据
 //  @return     转子当前旋转方向
-//  @since
+//  @since      none
 //-------------------------------------------------------------------------------------------------------------------
-MOTOR_DIR_enum actual_dir_judgement(HALL_Typedef hall)
+MOTOR_DIR_enum actual_dir_judgement(HALL_Typedef hall)//ps:由于霍尔传感器采用问题，转子速度太高时可以会出现判断失误
 {
-    MOTOR_DIR_enum dir;
+    MOTOR_DIR_enum actual_dir;
 
-    switch (hall.value_save[1] - hall.value_save[0])
+    switch (hall.value_save[1] - hall.value_save[0])//转子的本次扇区状态减去上次扇区状态
     {
-        case  4: dir = FORWARD; break;
-        case  3: dir = FORWARD; break;
-        case  2: dir = FORWARD; break;
-        case  1: dir = FORWARD; break;
-        case -5: dir = FORWARD; break;
-
-        case -4: dir = REVERSE; break;
-        case -3: dir = REVERSE; break;
-        case -2: dir = REVERSE; break;
-        case -1: dir = REVERSE; break;
-        case  5: dir = REVERSE; break;
+        //正传
+        case  4: actual_dir = FORWARD; break;
+        case  3: actual_dir = FORWARD; break;
+        case  2: actual_dir = FORWARD; break;
+        case  1: actual_dir = FORWARD; break;
+        case -5: actual_dir = FORWARD; break;
+        //反转
+        case -4: actual_dir = REVERSE; break;
+        case -3: actual_dir = REVERSE; break;
+        case -2: actual_dir = REVERSE; break;
+        case -1: actual_dir = REVERSE; break;
+        case  5: actual_dir = REVERSE; break;
     }
-    FOC_Status_Display(dir);
+    FOC_Status_Display(actual_dir);
 
-    return dir;
+    return actual_dir;
 }
 //-------------------------------------------------------------------------------------------------------------------
 //  @brief      转子旋转速度计算
 //  @param      hall:霍尔传感器相关数据
 //  @return     转子速度（RPM）
-//  @since
+//  @since      none
 //-------------------------------------------------------------------------------------------------------------------
 int32 calc_speed(HALL_Typedef hall)
 {
@@ -318,11 +313,11 @@ int32 calc_speed(HALL_Typedef hall)
 
     //电机转速计算说明
     //2.commutation_time_sum是统计电机换相6次会进入多少次T12周期中断
-        //2.1 T12周期中断周期中断的频率为20KHz
-        //2.2 函数调用关系ccu6_t12_pwm->scan_hall_status->calc_speed
+        //2.1 T12周期中断周期中断的频率为FPWM  "ps:频率宏定义在ccu6_pwm.h"
+        //2.2 函数调用关系ccu6_t12_pwm->Get_Hall_Value->calc_speed
         //2.3 commutation_time为统计换相时间的变量
     //3.通常电机转速我们都用RPM表示，RPM表示每分钟电机的转速
-    //3.电机转一圈需要换相的次数等于 电机极对数*6
+    //3.电机转一圈需要换相的次数等于 电机极对数*6    ps:极对数宏定义在#include "brushless_motor.h"
     //4.因此电机转速等于60*ADC中断频率/电机极对数/commutation_time_sum，这样可以得到电机每分钟的转速
 
     speed = PWM_PIT_NUM/POLEPAIRS/hall.commutation_time_sum;
@@ -331,13 +326,13 @@ int32 calc_speed(HALL_Typedef hall)
     {
         speed = -speed;
     }
-    move_filter_calc(&speed_filter, speed);
+    move_filter_calc(&speed_filter, speed); //速度滑动滤波
 
-    speed = speed_filter.data_average;
+    speed = speed_filter.data_average;      //得到滑动滤波的结果
 
     return speed;
 }
-#if CURRENT_CLOSE_LOOP_ENABLE
+#if CURRENT_CLOSE_LOOP_ENABLE               //电流环开关
 //-------------------------------------------------------------------------------------------------------------------
 //  @brief      d、q轴PI控制器
 //  @param      ref_park:d、q目标值
@@ -356,10 +351,10 @@ PARK_Typedef Current_Close_Loop(PARK_Typedef ref_park, PARK_Typedef I_park)
     error_sum_d += error_d;
     error_sum_q += error_q;
 
-    if (error_sum_d >  2) error_sum_d =  2;
-    if (error_sum_d < -2) error_sum_d = -2;
-    if (error_sum_q >  2) error_sum_d =  2;
-    if (error_sum_q < -2) error_sum_d = -2;
+    if (error_sum_d >  2) error_sum_d =  2;     //积分限幅
+    if (error_sum_d < -2) error_sum_d = -2;     //积分限幅
+    if (error_sum_q >  2) error_sum_d =  2;     //积分限幅
+    if (error_sum_q < -2) error_sum_d = -2;     //积分限幅
 
     park_in.d = FOC.Current_CL.d.kp * error_d + FOC.Current_CL.d.ki * error_sum_d;
     park_in.q = FOC.Current_CL.q.kp * error_q + FOC.Current_CL.q.ki * error_sum_q;
@@ -395,14 +390,13 @@ void SVPWM_Algorithm(uint8 Udc, uint16 T)
     FOC.Park_In = Current_Close_Loop(FOC.Ref_Park, FOC.I_Park);
 
     FOC.V_Clark   = Anti_Park_Calc(FOC.Park_In, FOC.theta);//Id,Iq进行帕克逆变换
-//    FOC.V_Clark   = Anti_Park_Calc(FOC.Ref_Park, FOC.theta);//Id,Iq进行帕克逆变换
 #else
     FOC.V_Clark   = Anti_Park_Calc(FOC.Ref_Park, FOC.theta);//Id,Iq进行帕克逆变换
 #endif
-    FOC.tool    = Tool_Calc(FOC.V_Clark);//中间变量计算
-    FOC.N       = Electrical_Sector_Judge(FOC.tool);//电角度扇区判断
-    FOC.Vector  = Vector_Calc(FOC.tool, FOC.N, Udc, T);//矢量作用时间计算
-    FOC.Period  = PeriodCal(FOC.Vector, FOC.N, T);//各桥PWM占空比计算
+    FOC.tool    = Tool_Calc(FOC.V_Clark);                   //中间变量计算
+    FOC.N       = Electrical_Sector_Judge(FOC.tool);        //电角度扇区判断
+    FOC.Vector  = Vector_Calc(FOC.tool, FOC.N, Udc, T);     //矢量作用时间计算
+    FOC.Period  = PeriodCal(FOC.Vector, FOC.N, T);          //各桥PWM占空比计算
 
     Mos_All_High_Open(FOC.Period.AH, FOC.Period.BH, FOC.Period.CH);
 }
@@ -431,7 +425,7 @@ void Momemtum_Motor_Control(float duty)
 ////  @brief      FOC相关数据打印
 ////  @param      void
 ////  @return     void
-////  @since      调试时放在main.c使用
+////  @since      调试时放在main.c使用，不使用时记得关闭
 ////-------------------------------------------------------------------------------------------------------------------
 void FOC_TEST_PRINTF(void)
 {
@@ -445,7 +439,7 @@ void FOC_TEST_PRINTF(void)
 ////  @brief      FOC参数初始化
 ////  @param      void
 ////  @return     void
-////  @since
+////  @since      none
 ////-------------------------------------------------------------------------------------------------------------------
 void FOC_Param_Init(void)
 {
@@ -465,7 +459,7 @@ void FOC_Param_Init(void)
 ////  @brief      FOC初始化
 ////  @param      void
 ////  @return     void
-////  @since
+////  @since      none
 ////-------------------------------------------------------------------------------------------------------------------
 void FOC_Init(void)
 {
