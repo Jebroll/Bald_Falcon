@@ -227,13 +227,19 @@ double Theta_Calc (HALL_Typedef hall, int32 speed, MOTOR_DIR_enum dir)
         {
             switch (hall.value.now)
             {
+                case 1: theta  = degrees_0;     break;
+                case 2: theta  = degrees_60;    break;
+                case 3: theta  = degrees_120;   break;
                 case 4: theta  = degrees_180;   break;
-                case 5: theta  = degrees_240;  break;
-                case 6: theta  = degrees_300; break;
-                case 1: theta  = degrees_0; break;
-                case 2: theta  = degrees_60; break;
-                case 3: theta  = degrees_120; break;
-                default:                      break;
+                case 5: theta  = degrees_240;   break;
+                case 6: theta  = degrees_300;   break;
+//                case 1: theta  = pi/180 * 55;     break;
+//                case 2: theta  = pi/180 * 115;    break;
+//                case 3: theta  = pi/180 * 175;   break;
+//                case 4: theta  = pi/180 * 235;   break;
+//                case 5: theta  = pi/180 * 295;   break;
+//                case 6: theta  = pi/180 * 355;   break;
+                default:                       break;
             }
         }
         else
@@ -383,12 +389,11 @@ void SVPWM_Algorithm(uint8 Udc, uint16 T)
     FOC.theta              = Theta_Calc (FOC.hall, FOC.BLmotor.speed, FOC.BLmotor.dir);
 
 #if CURRENT_CLOSE_LOOP_ENABLE
-//    FOC.Adc     = Adc_Read();
+    FOC.Adc     = Adc_Read();
     FOC.I_Clrak = Clark_Calc(FOC.Adc);
     FOC.I_Park  = Park_Calc(FOC.I_Clrak, FOC.theta);
     FOC.Park_In = Current_Close_Loop(FOC.Ref_Park, FOC.I_Park);
-#endif
-#if CURRENT_CLOSE_LOOP_ENABLE
+
     FOC.V_Clark   = Anti_Park_Calc(FOC.Park_In, FOC.theta);//Id,Iq进行帕克逆变换
 //    FOC.V_Clark   = Anti_Park_Calc(FOC.Ref_Park, FOC.theta);//Id,Iq进行帕克逆变换
 #else
@@ -464,13 +469,12 @@ void FOC_Param_Init(void)
 ////-------------------------------------------------------------------------------------------------------------------
 void FOC_Init(void)
 {
+#if CURRENT_CLOSE_LOOP_ENABLE
+    Adc_Collection_Init();          //adc电流采样初始化
+#endif
     FOC_Param_Init();               //FOC参数初始化
     ccu6_pwm_init();                //CCU6 PWM模块初始化
     Hall_Init();                    //霍尔传感器初始化
     move_filter_init(&speed_filter);//滑动滤波初始化
-#if !CURRENT_CLOSE_LOOP_ENABLE
-    move_filter_double_init(&current_a_filter);//滑动滤波初始化
-    move_filter_double_init(&current_b_filter);//滑动滤波初始化
-    Adc_Collection_Init();          //adc电流采样初始化
-#endif
+
 }

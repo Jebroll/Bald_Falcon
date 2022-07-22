@@ -184,14 +184,13 @@ void Bicycle_Configuration(void)
 
     if (!key4_f.single_click)
     {
+        Speed_Setup_Seting();
         Speed_Correction_Seting();
-        LBalance_Angle_Seting();
-        MBalance_Angle_Seting();
-        RBalance_Angle_Seting();
+//        LBalance_Angle_Seting();
+//        MBalance_Angle_Seting();
+//        RBalance_Angle_Seting();
 
         Servo_Control(Mid_Angle);
-
-        Speed_Setup_Seting();
     }
     else
     {

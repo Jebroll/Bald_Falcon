@@ -31,7 +31,7 @@ void Motor_Param_Init(void)
 {
     Speed_Param.PID.kp = -35;
     Speed_Param.PID.ki = -21;
-    Speed_Param.PID.kd = -75;
+    Speed_Param.PID.kd = -65;
 
     Speed_Param.Speed = 0;             //Çı¶¯ÂÖ±àÂëÆ÷ËÙ¶È
     Speed_Param.Speed_Input = 0;

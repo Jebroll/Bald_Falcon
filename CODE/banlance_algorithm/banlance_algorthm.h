@@ -4,6 +4,9 @@
 #include "hall.h"
 #include "servo.h"
 #include "private_common.h"
+
+extern uint8 Momentum_Motor_Flag;  //动量轮启停标志
+
 /**************************动量轮相关**************************/
 
 typedef struct{

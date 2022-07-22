@@ -139,33 +139,33 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Bald_Falcon_55
+BUILD_ARTIFACT_NAME := Bald_Falcon_75
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
-Bald_Falcon_55.siz \
+Bald_Falcon_75.siz \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Bald_Falcon_55.elf secondary-outputs
+main-build: Bald_Falcon_75.elf secondary-outputs
 
 # Tool invocations
-Bald_Falcon_55.elf: $(OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+Bald_Falcon_75.elf: $(OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: TASKING Linker'
-	cctc -lrt -lfp_fpu -lcs_fpu  -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="Bald_Falcon_55.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --exceptions --strict --anachronisms --force-c++ -Ctc26xb   -o"Bald_Falcon_55.elf" -Wl-o"Bald_Falcon_55.hex:IHEX" --lsl-core=vtc  --lsl-file=../Lcf_Tasking_Tricore_Tc.lsl $(OBJS)
+	cctc -lrt -lfp_fpu -lcs_fpu  -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="Bald_Falcon_75.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --exceptions --strict --anachronisms --force-c++ -Ctc26xb   -o"Bald_Falcon_75.elf" -Wl-o"Bald_Falcon_75.hex:IHEX" --lsl-core=vtc  --lsl-file=../Lcf_Tasking_Tricore_Tc.lsl $(OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-Bald_Falcon_55.siz: Bald_Falcon_55.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+Bald_Falcon_75.siz: Bald_Falcon_75.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	elfsize  "Bald_Falcon_55.elf"
+	elfsize  "Bald_Falcon_75.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 

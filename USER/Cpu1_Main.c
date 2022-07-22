@@ -41,11 +41,20 @@ void core1_main(void)
     {
 		//用户在此处编写任务代码
         //用户在此处编写任务代码
-
-#if (FOC_CTRL_MODE == 0)
-        for (int i = 0; i < 2350; i++);
-        SVPWM_Algorithm(BUS_VOLTAGE, PWM_PRIOD_LOAD);
-#endif
+        if (Configuration_complete_flag)
+        {
+            switch(Total_Image.road_type)
+            {
+                case start:
+                    Exist_Garage();
+                    break;
+                case stop:
+                    Enter_Graage();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
 

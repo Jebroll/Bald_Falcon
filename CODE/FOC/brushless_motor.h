@@ -12,14 +12,14 @@
 #include "hall.h"
 #include "move_filter.h"
 #include "private_common.h"
-
+//#include "fast_sin_cos_f32.h"
 
 #define Q_DEAD_PERIOD               1.0         //q轴死区
 #define PWM_PIT_NUM                 60*FPWM
 #define BUS_VOLTAGE                 12          //母线电压
 #define POLEPAIRS                   7           //电机极对数
 #define CURRENT_CLOSE_LOOP_ENABLE   0           //电流环控制开关
-#define FOC_CTRL_MODE               1           //SVPWM控制模式开关 0:while循环   1:中断控制
+
 
 typedef enum
 {

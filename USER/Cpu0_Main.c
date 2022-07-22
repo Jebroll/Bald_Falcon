@@ -3,7 +3,7 @@
 
 int core0_main(void)
 {
-    uint32 Time;
+//    uint32 Time;
     Uint8 propect_y;
 
     get_clk();
@@ -12,9 +12,9 @@ int core0_main(void)
     IfxCpu_waitEvent(&g_cpuSyncEvent, 0xFFFF);
     enableInterrupts();
 
+    FOC_Init();
     lcd_init();
     Gpio_Init();
-    FOC_Init();
     Servo_Init();
     Motor_Init();
     Buttons_Init();
@@ -30,6 +30,7 @@ int core0_main(void)
     Total_Image.three_way_status = three_way_normal;
     Total_Image.crossing_road_status = crossing_road_normal;
     Total_Image.round_road_status = round_road_normal;
+    Total_Image.podao_status = 0;
 
     Bicycle_Configuration();//系统初始化
     while (TRUE)

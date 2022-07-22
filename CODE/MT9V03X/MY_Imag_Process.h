@@ -149,6 +149,7 @@ typedef struct _total_image_
         Uint8 right_line_cnt;
         Uint8 middle_line_cnt;
         Uint8 stop_cnt;
+        Uint8 podao_status;
         Int8 OUTPUT_ERROR;
 }TOTAL_IMAGE;
 

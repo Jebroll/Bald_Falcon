@@ -1317,9 +1317,9 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
     //三岔路过后的入库判断
     if (Total_Image.three_way_status >= exit_right_three_way)
     {
-        Uint8 Temp_x = *(ptr+80+Image_x*20);
+        Uint8 Temp_x = *(ptr+80+Image_x*10);
         Uint8 cnt = 0;
-        for (Uint8 i = 20; i < 40; i++)
+        for (Uint8 i = 10; i < 30; i++)
         {
             for (Uint8 j = 80; j > 10; j--)
             {
@@ -1331,10 +1331,15 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
             }
         }
         Total_Image.stop_cnt = cnt;
-        if (Total_Image.stop_cnt > 150)
+        if (Total_Image.stop_cnt > 112)
         {
             Total_Image.road_type = stop;
         }
+    }
+
+    if (eulerAngle.pitch > 5)
+    {
+        Total_Image.podao_status = 1;
     }
 
     /* ****************************************入库的检测****************************************** */
@@ -1424,6 +1429,10 @@ void Edge_Extraction(Uint8 *Image_In, Uint8 Image_x, Uint8 Image_y)
     {
         Total_Image.road_type = road_normal;
         Total_Image.three_way_status++;
+        if (Total_Image.podao_status == 1)
+        {
+            Total_Image.podao_status = 0;
+        }
     }
     if (Total_Image.three_way_status == enter_right_three_way)
     {

@@ -49,87 +49,90 @@ void Straight_Line_MODE(float error1)//Æ«×óÕý£¬Æ«ÓÒ¸º
 
 void Exist_Garage(void)
 {
-    static uint16 delay_count;
-
     Total_Image.OUTPUT_ERROR = -14;
-    delay_count++;
-    if (delay_count >= 230)
-    {
-        start_stop_flag = 0;
-        Total_Image.road_type = road_normal;
-    }
+    systick_delay_ms(STM0, 500);
+    systick_delay_ms(STM0, 500);
+    systick_delay_ms(STM0, 200);
+    Led_Ctrl(4, ON);
+    start_stop_flag = 0;//ÉãÏñÍ·¿ªÆô
+    Total_Image.road_type = road_normal;
 }
 
 void Enter_Graage(void)
 {
-    static uint16 delay_count = 0;
-
     Buzzer_Ctrl(ON);
-    start_stop_flag = 1;
-    delay_count++;
-    if (delay_count % 14 == 0)
+    start_stop_flag = 1;//ÉãÏñÍ·¹Ø±Õ
+
+    Speed_Param.Speed_Setup = 60;
+
+    for(uint16 i = 30; i > 0; i--)
     {
-        Speed_Param.Speed_Setup -= 12;
-        Total_Image.OUTPUT_ERROR -= 2;
-        if (delay_count >= 300)
-        {
-            Speed_Param.Speed_Setup = 0;
-            Configuration_complete_flag = 0;
-            Motor_Stop();
-            while(1);
-        }
+        systick_delay_ms(STM0,40);
+        Speed_Param.Speed_Setup -= 1;
+        Total_Image.OUTPUT_ERROR --;
     }
+    systick_delay_ms(STM0,500);
+    Configuration_complete_flag = 0;
+    Motor_Stop();
+    Buzzer_Ctrl(OFF);
+    while(1)
+    {
+        Momentum_Motor_Flag = 0;
+        Mos_All_Low_Open();
+    }
+//    delay_count++;
+//    if (delay_count % 14 == 0)
+//    {
+//        Speed_Param.Speed_Setup -= 12;
+//        Total_Image.OUTPUT_ERROR -= 3;
+//        if (delay_count >= 300)
+//        {
+//            Speed_Param.Speed_Setup = 0;
+//            Configuration_complete_flag = 0;
+//            Motor_Stop();
+//            while(1);
+//        }
+//    }
 }
 
 void Road_Mode_Ctrl(void)
 {
-    switch(Total_Image.road_type)
+    if (Total_Image.podao_status == 1)
     {
-        case start:
-            Exist_Garage();
-            break;
-        case stop:
-            Enter_Graage();
-            break;
-//        case in_crossing_road1:
-//            Speed_Param.Speed_Setup = 100;
-//            break;
-//        case in_crossing_road3:
-//            Speed_Param.Speed_Setup = 100;
-//            break;
-        default:
-            break;
+        Speed_Param.Speed_Setup = 65;
     }
-    switch(Total_Image.crossing_road_status)
+    else
     {
-        case second_crossing_exit:
-            Speed_Param.Speed_Setup = 63;
-            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
-            break;
-        default:
-            break;
+        switch(Total_Image.crossing_road_status)
+        {
+            case second_crossing_exit:
+                Speed_Param.Speed_Setup = 63;
+                Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+                break;
+            default:
+                break;
+        }
+        switch(Total_Image.round_road_status)
+        {
+            case round_road_finishs:
+                Speed_Param.Speed_Setup = 70;
+                Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+                break;
+            default:
+                break;
+        }
+        switch(Total_Image.three_way_status)
+        {
+            case enter_right_three_way:
+                Speed_Param.Speed_Setup = 58;
+                Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+                break;
+            case exit_right_three_way:
+                Speed_Param.Speed_Setup = 65;
+                Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
+                break;
+        }
     }
-    switch(Total_Image.round_road_status)
-    {
-        case round_road_finishs:
-            Speed_Param.Speed_Setup = 60;
-            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
-            break;
-        default:
-            break;
-    }
-    switch(Total_Image.three_way_status)
-    {
-        case enter_right_three_way:
-            Speed_Param.Speed_Setup = 58;
-            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
-            break;
-        case exit_right_three_way:
-            Speed_Param.Speed_Setup = 65;
-            Speed_Param.Normal_Speed = Speed_Param.Speed_Setup;
-            break;
-    }
-    if (eulerAngle.pitch > 5) Speed_Param.Speed_Setup = 75;
 }
 void Whole_Ctrl(void)
 {

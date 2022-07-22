@@ -4,6 +4,7 @@
 #include "zf_vadc.h"
 #include "common.h"
 #include "move_filter.h"
+#include "SysSe/Math/Ifx_LowPassPt1F32.h"
 
 #define ADC_NUMBER              ADC_2           //∂®“ÂADC±‡∫≈
 
@@ -13,6 +14,9 @@
 
 #define Joystick_Y              ADC2_CH5_A37
 #define Joystick_SW             ADC2_CH6_A38
+
+
+#define FILTER_ENABLE           0
 
 typedef struct
 {

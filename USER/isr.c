@@ -27,15 +27,14 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     enableInterrupts();//开启中断嵌套
     PIT_CLEAR_FLAG(CCU6_0, PIT_CH0);
 /********InterruptFunction Begin********/
-#if !CURRENT_CLOSE_LOOP_ENABLE
-    FOC.Adc = Adc_Read();
-#endif
     button_ticks();
     if (Configuration_complete_flag)
     {
-//        Speed_Control(50);
-//        Servo_Control(Max_Angle);
-//        Momemtum_Motor_Control(0.5);
+#if 0 //以下部分用于调试
+        Speed_Control(50);
+        Servo_Control(Max_Angle);
+        Momemtum_Motor_Control(1.5);
+#endif
         Whole_Ctrl();
     }
 /********InterruptFunction  End ********/
@@ -49,39 +48,42 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 /********InterruptFunction Begin********/
     Attitude_Algorithm();       //姿态解算
     Balance_Control();          //平衡控制
+#if 0 //以下部分用于调试
+    printf("%.2f\r\n",eulerAngle.roll);//调试用
+#endif
+/********InterruptFunction  End ********/
+}
 
-//    printf("%.2f\r\n",eulerAngle.roll);//调试用
+#if 0  //FOC使用了CCU61，所以CCU61定时器中断无法使用
+IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
+{
+  enableInterrupts();//开启中断嵌套
+  PIT_CLEAR_FLAG(CCU6_1, PIT_CH0);
+/********InterruptFunction Begin********/
 
 /********InterruptFunction  End ********/
 }
 
-//IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
-//{
-//  enableInterrupts();//开启中断嵌套
-//  PIT_CLEAR_FLAG(CCU6_1, PIT_CH0);
-///********InterruptFunction Begin********/
-//
-///********InterruptFunction  End ********/
-//}
-//
-//IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
-//{
-//  enableInterrupts();//开启中断嵌套
-//  PIT_CLEAR_FLAG(CCU6_1, PIT_CH1);
-///********InterruptFunction Begin********/
-//
-///********InterruptFunction  End ********/
-//}
-#if (FOC_CTRL_MODE == 1)
+IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
+{
+  enableInterrupts();//开启中断嵌套
+  PIT_CLEAR_FLAG(CCU6_1, PIT_CH1);
+/********InterruptFunction Begin********/
+
+/********InterruptFunction  End ********/
+}
+#endif
+
+
 //PWM中断处理函数
 IFX_INTERRUPT(ccu6_t12_pwm, 0, CCU60_T12_ISR_PRIORITY)
 {
     IfxCpu_enableInterrupts();
     IfxCcu6_clearInterruptStatusFlag(&MODULE_CCU61, IfxCcu6_InterruptSource_t12PeriodMatch);
 
-    SVPWM_Algorithm(BUS_VOLTAGE, PWM_PRIOD_LOAD);
+    SVPWM_Algorithm(BUS_VOLTAGE, PWM_PRIOD_LOAD);//SVPWM生成，用于FOC控制
 }
-#endif
+
 
 IFX_INTERRUPT(eru_ch0_ch4_isr, 0, ERU_CH0_CH4_INT_PRIO)
 {
