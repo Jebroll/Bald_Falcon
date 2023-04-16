@@ -7,3 +7,5 @@
 不用提交Issue了，我不会也没时间看的，在此开源也仅仅是因为被倒卖代码不爽。
 
 我是负责运动控制部分代码编写的，另一部分是我队友写的，现在已经找到的大问题有平衡PID结构部分有问题、和FOC自启部分没有写。看的时候自己推一下吧。
+
+Tip: If you are paying to get this project, it means you are being cheated
